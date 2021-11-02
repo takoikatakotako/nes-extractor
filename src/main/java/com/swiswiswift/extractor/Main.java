@@ -45,7 +45,7 @@ public class Main {
         int[][][] sprites = new int[characterROM.length / 16][8][8];
 
         for (int i = 0; i < characterROM.length / 16; i++) {
-
+            // 1sprite のデータを切り出す
             byte[] spriteBinary = Arrays.copyOfRange(characterROM, i * 16, (i + 1) * 16);
 
             // sprite を初期化
@@ -95,7 +95,7 @@ public class Main {
     static int[][][] createMockStripes() {
         int[][][] sprites = new int[500][8][8];
 
-        //
+        //　カビゴンのスプライト
         int[][] sprite = new int[8][8];
         sprite[0] = new int[]{3, 1, 1, 3, 3, 1, 1, 3};
         sprite[1] = new int[]{3, 1, 1, 1, 1, 1, 1, 3};
@@ -106,6 +106,7 @@ public class Main {
         sprite[6] = new int[]{1, 2, 2, 2, 2, 2, 2, 1};
         sprite[7] = new int[]{3, 1, 1, 1, 1, 1, 1, 3};
 
+        // カビゴンのスプライトを500個詰める
         for (int i = 0; i < 500; i++) {
             sprites[i] = sprite;
         }

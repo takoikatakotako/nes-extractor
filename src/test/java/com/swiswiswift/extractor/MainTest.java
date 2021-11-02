@@ -13,5 +13,6 @@ public class MainTest {
         assertEquals("00001000", Main.byteToBinaryString((byte) 8));
         assertEquals("00001001", Main.byteToBinaryString((byte) 9));
         assertEquals("11111111", Main.byteToBinaryString((byte) 255));
+        assertEquals("01100110", Main.byteToBinaryString((byte) 0x66));
     }
 }
