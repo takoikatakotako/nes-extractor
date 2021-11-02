@@ -43,38 +43,7 @@ public class Main {
 
         // sprite用の配列を作成
         int[][][] sprites = new int[characterROM.length / 16][8][8];
-
-        for (int i = 0; i < characterROM.length / 16; i++) {
-            // 1sprite のデータを切り出す
-            byte[] spriteBinary = Arrays.copyOfRange(characterROM, i * 16, (i + 1) * 16);
-
-            // sprite を初期化
-            int[][] sprite = new int[8][8];
-            for (int j = 0; j < 8; j++) {
-                sprite[j] = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-            }
-
-            for (int j = 0; j < 8; j++) {
-                String fixedValueString = byteToBinaryString(spriteBinary[j]);
-                for (int k = 0; k < 8; k++) {
-                    if (fixedValueString.charAt(k) == '1') {
-                        sprite[j][k] += 1;
-                    }
-                }
-            }
-
-            for (int j = 8; j < 16; j++) {
-                String fixedValueString = byteToBinaryString(spriteBinary[j]);
-                for (int k = 0; k < 8; k++) {
-                    if (fixedValueString.charAt(k) == '1') {
-                        sprite[j - 8][k] += 2;
-                    }
-                }
-            }
-
-            // sprite を追加
-            sprites[i] = sprite;
-        }
+        sprites = createMockStripes();
         exportImage(sprites);
     }
 
